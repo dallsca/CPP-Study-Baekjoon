@@ -1,21 +1,26 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
-	int count[10] = {};
-	int a, b, c;
-	cin >> a >> b >> c;
-	int multi = a * b * c;
+int main() {
+    int values[10];
+    int frequency[1001] = {0}; 
+    int sum = 0;
+    int maxIndex = 0; 
 
-	while (multi != 0)
-	{
-		count[multi % 10]++; //나누고 난 나머지 값이 해당 자리수의 숫자이므로 이를 인덱스로 이용
-		multi = multi / 10;
-	}
+    for (int i = 0; i < 10; i++) {
+        cin >> values[i];
+        sum += values[i];
+        frequency[values[i]]++;
+    }
 
-	for (int i = 0; i < 10; i++)
-	{
-		cout << count[i] << endl;
-	}
+    int maxFrequency = 0; 
+    for (int i = 0; i < 1001; i++) {
+        if (frequency[i] > maxFrequency) {
+            maxFrequency = frequency[i];
+            maxIndex = i;
+        }
+    }
+
+    cout << sum / 10 << endl; 
+    cout << maxIndex << endl; 
 }
