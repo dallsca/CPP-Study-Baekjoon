@@ -11,7 +11,8 @@ int main()
 		int typo;
 		std::string name;
 		cin >> typo >> name;
-		for (int j = 0; j < name.length(); j++)
+		int length = name.length();
+		for (int j = 0; j <length ; j++)
 		{
 			
 			if (j != typo-1)
